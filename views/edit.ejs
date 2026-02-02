@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your post</title>
+</head>
+<body>
+    <% if (!post) { %>
+        <p>Post not found.</p>
+    <% } else { %>
+        <h2>Edit post</h2>
+        <p>Post id: <%=post.id%></p>
+        <p>Post username: <%=post.name%></p>
+        <form method="post" action="/posts/<%=post.id%>?_method=PATCH">
+            <textarea name="content" rows="6" cols="60"><%=post.content%></textarea>
+            <br>
+            <button type="submit">Save Changes</button>
+        </form>
+    <% } %>
+</body>
+</html>
